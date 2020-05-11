@@ -10,4 +10,7 @@ z = df['MOV_AVG_30D']
 print(df.describe())
 
 print("pycharm commit test")
+
+print("Pycharm commit and push test")
+
 print(z)
