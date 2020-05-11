@@ -13,3 +13,5 @@ print(mov_avg_30d)
 print(mov_avg_100d)
 head = df.head()
 print(head)
+
+print("my name is james ")
