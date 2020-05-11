@@ -9,4 +9,5 @@ df = resp.as_frame()
 z = df['MOV_AVG_30D']
 print(df.describe())
 
+print("pycharm commit test")
 print(z)
