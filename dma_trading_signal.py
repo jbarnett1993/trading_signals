@@ -6,11 +6,10 @@ import pandas as pd
 resp = LocalTerminal.get_reference_data(['EURUSD Curncy', 'USDAUD Curncy'], ['MOV_AVG_30D','MOV_AVG_50D', 'MOV_AVG_100D','MOV_AVG_200D'])
 df = resp.as_frame()
 
-z = df['MOV_AVG_30D']
-print(df.describe())
-
-print("pycharm commit test")
-
-print("Pycharm commit and push test")
-
-print(z)
+mov_avg_30d = df['MOV_AVG_30D']
+mov_avg_100d = df['MOV_AVG_100D']
+#print(df.describe())
+print(mov_avg_30d)
+print(mov_avg_100d)
+head = df.head()
+print(head)
