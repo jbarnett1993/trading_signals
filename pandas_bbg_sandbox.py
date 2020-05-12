@@ -11,11 +11,7 @@ df = resp.as_frame()
 #print(mov_avg_30d)
 #print(mov_avg_100d)
 
-##
 
-## index the dataframe correctly
-## append a column based on a calculation from the indexed dataframe object
-## push out to pdf
 
 
 # Adding a new column to the dataframe based on a calculation from other columns
@@ -41,3 +37,9 @@ df['bs'][df['30d - 100d'] < 0] ='S'
 #print(eurusd1)
 #print(df.index)
 print(df)
+
+
+#TODO: index the dataframe correctly
+#TODO: append a column based on a calculation from the indexed dataframe object
+#TODO: push out to pdf
+#TODO: graph and highlight where the dma's cross
