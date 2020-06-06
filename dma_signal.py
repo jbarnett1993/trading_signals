@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import tia.analysis.ta as ta
 
 
+
 # Single SID, Multiple Valid Fields
 resp = LocalTerminal.get_historical(['EURUSD Curncy'], ['PX_LAST'], start='1/1/2019', end='05/11/2020')
 df = resp.as_frame()
@@ -32,7 +33,7 @@ for i, v in entry_signal.iteritems():
 
 
 """Read to CSV commented and only used when necessary/saving hammering the API"""
-#df.to_csv(r'C:\Users\barnjam\OneDrive - Manulife\trading_signals\CSV Outputs\signals.csv',index = False)
+df.to_csv(r'C:\Users\barnjam\OneDrive - Manulife\trading_signals\CSV Outputs\signals.csv',index = False)
 plt.show()
 
 """ plotting hidden so that I don't run it every time"""
