@@ -5,7 +5,7 @@ import tia.analysis.ta as ta
 
 
 # Single SID, Multiple Valid Fields
-resp = LocalTerminal.get_historical(['EURUSD Curncy'], ['PX_LAST'], start='1/1/2019', end='05/11/2020')
+resp = LocalTerminal.get_historical(['EURUSD Curncy'], ['PX_LAST'], start='1/1/2020', end='10/27/2020')
 df = resp.as_frame()
 
 #Add the 30 and 50 day rolling averages to the dataframe
@@ -21,14 +21,21 @@ signal = ta.cross_signal(df['eurusd30dma'], df['eurusd50dma']).dropna()
 entry_signal = signal.copy()
 entry_signal[signal.shift(1) == signal]  = 0
 entry_signal = entry_signal[entry_signal != 0]
+#df['entry signal'] = entry_signal
+#print(entry_signal.head())
+#print(df.head())
+#print(df['eurusd30dma']['2020-06-01'])
 
-matplotlib.style.use('ggplot')
-df.plot(title='signals')
+#matplotlib.style.use('ggplot')
+df.plot(kind='line',title = 'signals', figsize=(15, 10), legend=True, fontsize=12)
+#ax = df.plot(kind='line', figsize=(15, 10), legend=True, fontsize=12)
+#ax.set_xlabel("Date", fontsize=12)
+#ax.set_ylabel("PX", fontsize=12)
 for i, v in entry_signal.iteritems():
     if v == -1:
-        plt.plot(i, df['eurusd30dma'][i], 'rv')
+        plt.plot(df['eurusd30dma'][i], marker='v',markersize = 10)
     else:
-        plt.plot(i, df['eurusd30dma'][i], 'k^')
+        plt.plot(df['eurusd30dma'][i], marker='^', markersize = 12)
 
 
 """Read to CSV commented and only used when necessary/saving hammering the API"""
@@ -37,7 +44,7 @@ plt.show()
 
 """ plotting hidden so that I don't run it every time"""
 
-#ax = df.plot(kind='line', title ="EURUSD Curncy PX", figsize=(15, 10), legend=True, fontsize=12)
+#ax = df.plot(kind='line', figsize=(15, 10), legend=True, fontsize=12)
 #ax.set_xlabel("Date", fontsize=12)
 #ax.set_ylabel("PX", fontsize=12)
 
