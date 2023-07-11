@@ -23,7 +23,8 @@ entry_signal = signal.copy()
 entry_signal[signal.shift(1) == signal]  = 0
 entry_signal = entry_signal[entry_signal != 0]
 
-#df['signal'] = entry_signal
+#Plot the signal
+
 matplotlib.style.use('ggplot')
 df.plot(title='signals')
 for i, v in entry_signal.iteritems():
@@ -33,10 +34,7 @@ for i, v in entry_signal.iteritems():
         plt.plot(i, df['EURUSD Curncy']['PX_LAST'][i],'k^')
 
 #df.to_csv(r'C:\Users\barnjam\OneDrive - Manulife\trading_signals\CSV Outputs\signals.csv',index = False)
-#plt.show()
+plt.show()
 
-# Can get the set of trades created by this signal
-trades = ta.Signal(signal).close_to_close(df['EURUSD Curncy']['PX_LAST'])
-trades
 
 #TODO: most efficient way to have multiple ccy's in here and to generate a table output on when to trade

@@ -19,16 +19,16 @@ df['30d - 100d'] = df['MOV_AVG_30D'] - df ['MOV_AVG_100D']
 
 # testing the use of iloc and loc for indexing a specific cell
 test = df.loc['EURUSD Curncy', '30d - 100d']
-test1 =df.iloc[0,4]
+test1 =df.iloc[1,4]
 print(test)
 print(test1)
 print(df)
 
 ## adding a column to the dataframe to say 'B' when the 30dma is higher than the 100dma
 
-df['bs'] = 'NA'
-df['bs'][df['30d - 100d'] > 0] ='B'
-df['bs'][df['30d - 100d'] < 0] ='S'
+#df['bs'] = 'NA'
+#df['bs'][df['30d - 100d'] > 0] ='B'
+#df['bs'][df['30d - 100d'] < 0] ='S'
 
 #eurusd = df.loc['EURUSD Curncy']
 #eurusd1 = df.iloc[0]
@@ -36,7 +36,7 @@ df['bs'][df['30d - 100d'] < 0] ='S'
 #print('space between printing rows')
 #print(eurusd1)
 #print(df.index)
-print(df)
+#print(df)
 
 
 #TODO: index the dataframe correctly

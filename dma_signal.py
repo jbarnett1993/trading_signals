@@ -22,9 +22,7 @@ entry_signal = signal.copy()
 entry_signal[signal.shift(1) == signal]  = 0
 entry_signal = entry_signal[entry_signal != 0]
 #df['entry signal'] = entry_signal
-#print(entry_signal.head())
-#print(df.head())
-#print(df['eurusd30dma']['2020-06-01'])
+print(entry_signal.head())
 
 #matplotlib.style.use('ggplot')
 df.plot(kind='line',title = 'signals', figsize=(15, 10), legend=True, fontsize=12)
@@ -33,9 +31,9 @@ df.plot(kind='line',title = 'signals', figsize=(15, 10), legend=True, fontsize=1
 #ax.set_ylabel("PX", fontsize=12)
 for i, v in entry_signal.iteritems():
     if v == -1:
-        plt.plot(df['eurusd30dma'][i], marker='v',markersize = 10)
+        plt.plot(i, df['eurusd30dma'][i], marker='v',markersize = 10)
     else:
-        plt.plot(df['eurusd30dma'][i], marker='^', markersize = 12)
+        plt.plot(i, df['eurusd30dma'][i], marker='^', markersize = 12)
 
 
 """Read to CSV commented and only used when necessary/saving hammering the API"""
